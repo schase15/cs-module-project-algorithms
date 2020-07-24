@@ -16,20 +16,62 @@ Plan:
 '''
 
 
-
 def sliding_window_max(nums, k):
     # Create an empty solutions array
     solution = []
 
     # Move the sliding window from the front of the nums array until it hits the back
-    for i in range((len(nums)-k) +1):
+    for i in range((len(nums)-k) +1):   #O (n)
         # Create sliding window array
-        window = nums[i: i + k]
+        window = nums[i: i + k]     # O(1)
         # Find the max value in the window and add it to the solution array
-        solution.append(max(window))
+        solution.append(max(window))    #O(1) - append, O(n) - max()
     
     # return the solutions array
     return solution
+
+
+'''
+Second Pass Plan:
+    Run time of first pass solution is O(n^2), because max() method is O(n) and is inside the for loop which is O(n)
+    Find a more efficient method to find the max
+        Sort the list and return the last one, same runtime
+    
+
+'''
+##### This doesn't work because I forgot that the window isn't set at 3, it is variable length k so would require another for loop which makes it O(n)
+# Runtime is O(n)
+# Space complexity is O(n)
+
+# def sliding_window_max(nums, k):
+
+#     # Create an empty solutions array
+#     solution = []
+
+#     # Move the sliding window from the front of the nums array until it hits the back
+#     for i in range((len(nums)-k) +1):   #O (n)
+#         # Create sliding window array
+#         window = nums[i: i + k]     # O(1)
+
+#         # Each window array only has k items
+#         # create if statements, create temp max variable = window[1]
+#         # if item 2 is greater than max_value, replace max_value
+#         # If item 3 is greater than max_value, replace max_value
+#         # Append max value to solutions array
+
+#         max_value = window[0]
+
+#         if window[1] > max_value:   # O(1)
+#             max_value = window[1]
+
+#         if window[2] > max_value:   # O(1)
+#             max_value = window[2]
+
+#         solution.append(max_value)  # O(1)
+
+
+#     # return the solutions array
+#     return solution
 
 
 if __name__ == '__main__':

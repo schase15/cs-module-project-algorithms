@@ -15,25 +15,27 @@ Plan:
 
 '''
 
-
-
+# Runtime O(n)
+# Space complexity is O(n)
 
 def single_number(arr):
     # Define empty array
-    single = []
+
+    # As far as space complexity is concerned, worst case would be if we have half of the elements
+    # in the array before we start removing them: O((1/2) * n) space complexity
+    single = [] # O(1)
     # iterate through the array
-    for item in arr:
+    for item in arr:    # O(n)
 
         # if item is already in the single array, remove it from the array
-        if item in single:
-            single.remove(item)
+        if item in single:  # O(1)
+            single.remove(item) # O(1)
         # If it is not in the array yet, add it
         else:
-            single.append(item)
+            single.append(item)  # O(1)
     
     # Return the one value in the single list
-    return single[0]
-    
+    return single[0]    # O(1)
 
 
 if __name__ == '__main__':

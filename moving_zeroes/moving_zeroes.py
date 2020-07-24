@@ -11,13 +11,16 @@ Plan:
     Return the array with all of the non-zeros at the front
 '''
 
+# Space complexity is O(1), only uses the input array
+# Runtime complexity is O(n)
+
 def moving_zeroes(arr):
     # Iterate through the array
-    for value in arr:
+    for value in arr:   # O(n)
         # If the value is not equal to 0, remove and add it to the front
-        if value != 0:
-            arr.remove(value)
-            arr.insert(0, value)
+        if value != 0:  # O(1)
+            arr.remove(value)   # O(1)
+            arr.insert(0, value)    # O(1)
         # Otherwise, do nothing
 
     return arr
